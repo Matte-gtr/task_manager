@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{heading}}</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"
+    />
+    <link
+      href="{{ url_for('static', filename='css/style.css') }}"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <div class="nav-wrapper">
+          <a href="{{ url_for('get_tasks') }}" class="brand-logo"
+            >Task Manager</a
+          >
+          <ul class="right hide-on-med-and-down">
+            <li><a href="{{ url_for('get_tasks') }}">Home</a></li>
+            <li><a href="{{ url_for('add_task') }}">Add Task</a></li>
+            <li><a href="{{ url_for('get_categories') }}">Categories</a></li>
+            <li>
+              <a href="{{ url_for('completed_tasks') }}">Completed Tasks</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container">
+      <h1>{{heading}}</h1>
+      {% block content %} {% endblock %}
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".collapsible").collapsible();
+      });
+      $(document).ready(function () {
+        $(".datepicker").pickadate({
+          format: "dd/mm/yyyy",
+          closeOnSelect: true,
+        });
+      });
+      $(document).ready(function () {
+        $("select").material_select();
+      });
+      $(".datepicker").on("mousedown", function (event) {
+        event.preventDefault();
+      });
+      $(document).ready(function () {
+        $(".sidenav").sidenav();
+      });
+    </script>
+  </body>
+</html>

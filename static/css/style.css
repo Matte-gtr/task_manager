@@ -1,0 +1,27 @@
+.btn_small {
+    height: 24px;
+    width: 60px;
+    line-height: 24px;
+    margin: 5px 5px;
+    padding: 0 0.5em;
+}
+
+.task_header {
+    margin-top: 5px;
+    padding-left: 5em;
+}
+
+.task_complete {
+    margin-top: 5px;
+    left: 60%;
+    position: absolute;
+}
+
+.hidden {
+    height: 0;
+    width: 0;
+}
+
+nav .brand-logo {
+    padding-left: 15px;
+}
